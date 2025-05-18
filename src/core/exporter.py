@@ -1,16 +1,16 @@
 import os
 import pandas as pd
-from enums import FileMode, FileEncoding
-from interface import converter_strategy, saver_strategy
+from utils.enums import FileMode, FileEncoding
+from interface.converter_strategy import Converter
+from interface.saver_strategy import Saver
 
-# TO-DO: Implementar interfaces
 
 class DataFrameToExporter:
     """
     Classe base para exportar um DataFrame para um arquivo.
     """
 
-    def __init__(self, converter: DataFrameConverter, saver: FileSaver):
+    def __init__(self, converter: Converter, saver: Saver):
         self.converter = converter
         self.saver = saver
         
@@ -29,9 +29,9 @@ class DataFrameToExporter:
         """
 
         self._validate_dataframe(df)
-        data = self.convert(df)
+        data = self.converter.convert(df)
         file_path = self._resolve_path(file_name, path_file)
-        self.save(data, file_path, file_mode, encoding)
+        self.saver.save(data, file_path, file_mode, encoding)
 
 
     def _validate_dataframe(self, df: pd.DataFrame):
