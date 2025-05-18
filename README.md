@@ -5,7 +5,7 @@ O código refatorado era utilizado na etapa de ELT em ambiente de produção, at
 A ideia da refatoração para adotar o Strategy Method foi uma alternativa para alguns dos problemas encontrados na versão antiga do código, que utilizava método de implementação
 de Template Method.
 
-## Escopo:
+## Escopo
 Para abstrair toda a lógica de negócio do código em produção, foi desenvolvido um código para receber dados de um dataframe e convertê-lo para um arquivo json.
 Por isso, os seguintes passos foram definidos para construir esse processo:
 - Criar o template method para simular a versão original do código
@@ -33,4 +33,5 @@ src/
 └── utils       # arquivos de utilidades
 
 ```
-  
+
+Para saber mais sobre Design Patterns, acesse o link: https://refactoring.guru/pt-br/design-patterns/
